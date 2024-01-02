@@ -8,7 +8,7 @@ namespace Microsoft.AspNetCore.Antiforgery;
 /// </summary>
 /// <param name="required">A value indicating whether the antiforgery token should be validated.</param>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-public class RequireAntiforgeryTokenAttribute(bool required = true) : Attribute, IAntiforgeryMetadata
+public class RequireAntiforgeryTokenAttribute(bool required = true, AntiforgeryTokenSource antiforgeryTokenSource = AntiforgeryTokenSource.HeaderOrFormBody) : Attribute, IAntiforgeryMetadata
 {
     /// <summary>
     /// Gets or sets a value indicating whether the antiforgery token should be validated.
@@ -18,4 +18,5 @@ public class RequireAntiforgeryTokenAttribute(bool required = true) : Attribute,
     /// the validation check for the antiforgery token can be avoided.
     /// </remarks>
     public bool RequiresValidation { get; } = required;
+    public AntiforgeryTokenSource AntiforgeryTokenSource { get; } = antiforgeryTokenSource;
 }

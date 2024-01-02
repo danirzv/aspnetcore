@@ -39,6 +39,11 @@ internal sealed class DefaultAntiforgeryTokenStore : IAntiforgeryTokenStore
 
         var cookieToken = httpContext.Request.Cookies[_options.Cookie.Name!];
 
+        var test = httpContext.GetEndpoint().Metadata.GetOrderedMetadata<IAntiforgeryMetadata>();
+
+        Enum<>.HasFlag()
+        test.AntiforgeryTokenSource<>
+
         // We want to delay reading the form as much as possible, for example in case of large file uploads,
         // request token could be part of the header.
         StringValues requestToken = default;

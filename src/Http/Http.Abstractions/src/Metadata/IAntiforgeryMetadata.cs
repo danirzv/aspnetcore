@@ -12,4 +12,5 @@ public interface IAntiforgeryMetadata
     /// Gets a value indicating whether the antiforgery token should be validated.
     /// </summary>
     bool RequiresValidation { get; }
+    public AntiforgeryTokenSource AntiforgeryTokenSource { get; }
 }
